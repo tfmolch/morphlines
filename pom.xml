@@ -48,6 +48,7 @@
         <module>stratio-commons-morphline</module>
 		<module>stratio-checkpointfilter-morphline</module>
 		<module>stratio-geolocateairports-morphline</module>
+		<module>stratio-referer-parser-morphline</module>
 	</modules>
 
 	<dependencyManagement>
