@@ -20,8 +20,8 @@
     http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.stratio.morphlines</groupId>
-		<artifactId>stratio-morphlines</artifactId>
+		<groupId>com.stratio.morphlines-ng</groupId>
+		<artifactId>stratio-morphlines-ng</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>stratio-geoip-morphline</artifactId>
