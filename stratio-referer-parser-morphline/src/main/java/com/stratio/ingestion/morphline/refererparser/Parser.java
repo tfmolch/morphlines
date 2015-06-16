@@ -1,12 +1,14 @@
 /**
- * Copyright (C) 2014 Stratio (http://stratio.com)
- * <p/>
+ * Copyright 2012-2013 Snowplow Analytics Ltd
+ *
+ * Copyright (C) 2015 Stratio (http://stratio.com)
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * <p/>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p/>
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -25,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.yaml.snakeyaml.Yaml;
@@ -35,6 +38,7 @@ import com.stratio.ingestion.morphline.refererparser.exception.RefererParserExce
 public class Parser {
 
     private static final String REFERERS_YAML_PATH = "/referers.yml";
+    public static final String HTTP_LOCALHOST = "http://localhost?";
     private Map<String, RefererLookup> referers;
 
     /**
@@ -93,7 +97,7 @@ public class Parser {
     }
 
     public Referer parse(String refererUri, String pageHost) throws URISyntaxException {
-        if (refererUri == null || refererUri == "") {
+        if (StringUtils.isBlank(refererUri)) {
             return null;
         }
         final URI uri = new URI(refererUri);
@@ -171,9 +175,7 @@ public class Parser {
 
     private Referer parseUtmParameters(String query) {
         if (query != null) {
-
             Map<String, String> paramsMap = buildParamsMap(query);
-
             String source = paramsMap.get("utm_source");
             String medium = paramsMap.get("utm_medium");
             String term = paramsMap.get("utm_term");
@@ -188,7 +190,7 @@ public class Parser {
     private Map<String, String> buildParamsMap(String query) {
         List<NameValuePair> params = null;
         try {
-            params = URLEncodedUtils.parse(new URI("http://localhost?" + query), "UTF-8");
+            params = URLEncodedUtils.parse(new URI(HTTP_LOCALHOST + query), "UTF-8");
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
