@@ -49,6 +49,7 @@
         <module>stratio-checkpointfilter-morphline</module>
         <module>stratio-geolocateairports-morphline</module>
         <module>doc</module>
+        <module>stratio-ldap-morphline</module>
     </modules>
 
     <dependencyManagement>
