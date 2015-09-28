@@ -39,12 +39,10 @@ public class FieldFilterBuilder implements CommandBuilder {
     private static final List<String> DEFAULT_INCLUDE_FIELDS = ImmutableList.of();
     private static final boolean DEFAULT_IS_REGEX = false;
 
-    @Override
     public Collection<String> getNames() {
         return Collections.singleton(COMMAND_NAME);
     }
 
-    @Override
     public Command build(final Config config, final Command parent,
                          final Command child, final MorphlineContext context) {
         return new FieldFilter(this, config, parent, child, context);

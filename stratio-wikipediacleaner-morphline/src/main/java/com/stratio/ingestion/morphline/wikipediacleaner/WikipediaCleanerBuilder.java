@@ -36,12 +36,10 @@ public class WikipediaCleanerBuilder implements CommandBuilder {
 	private final static String COMMAND_NAME = "wikipediaCleaner";
 	private final static String TEMPLATE_PATTERN = "\\{\\{[^{}]*\\}\\}";
 
-	@Override
 	public Collection<String> getNames() {
 		return Collections.singletonList(COMMAND_NAME);
 	}
 
-	@Override
 	public Command build(Config config, Command parent, Command child,
 			MorphlineContext context) {
 		return new WikipediaCleaner(this, config, parent, child, context);

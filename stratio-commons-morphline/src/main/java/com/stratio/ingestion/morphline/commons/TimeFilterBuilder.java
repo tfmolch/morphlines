@@ -67,12 +67,10 @@ public class TimeFilterBuilder implements CommandBuilder {
     private static final String DEFAULT_TIMEZONE = "GMT";
     private static final String DEFAULT_FIELD = "timestamp";
 
-    @Override
     public Collection<String> getNames() {
         return Collections.singleton(COMMAND_NAME);
     }
 
-    @Override
     public Command build(Config config, Command parent, Command child, MorphlineContext context) {
         return new TimeFilter(this, config, parent, child, context);
     }

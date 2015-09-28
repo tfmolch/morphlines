@@ -31,11 +31,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.flume</groupId>
-            <artifactId>flume-ng-core</artifactId>
-            <version>${flume.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.kitesdk</groupId>
             <artifactId>kite-morphlines-core</artifactId>
         </dependency>
@@ -44,8 +39,10 @@
             <artifactId>commons-csv</artifactId>
             <version>1.1</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+        </dependency>
     </dependencies>
 
 

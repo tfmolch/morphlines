@@ -52,12 +52,10 @@ public class HeadersToBodyBuilder implements CommandBuilder {
     private static final String COMMAND_NAME = "headersToBody";
     private static final String CONF_EXCLUDE_FIELDS = "excludeFields";
 
-    @Override
     public Collection<String> getNames() {
         return Collections.singletonList(COMMAND_NAME);
     }
 
-    @Override
     public Command build(Config config, Command parent, Command child, MorphlineContext context) {
         return new HeadersToBody(this, config, parent, child, context);
     }

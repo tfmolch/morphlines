@@ -31,12 +31,10 @@ public class LanguageExtractorBuilder implements CommandBuilder {
 
 	private final static String COMMAND_NAME = "languageExtractor";
 
-	@Override
 	public Collection<String> getNames() {
 		return Collections.singletonList(COMMAND_NAME);
 	}
 
-	@Override
 	public Command build(Config config, Command parent, Command child,
 			MorphlineContext context) {
 		return new LanguageExtractor(this, config, parent, child, context);

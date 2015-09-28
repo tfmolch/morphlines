@@ -12,6 +12,7 @@ Stratio Morphlines consists of several modules:
     - *RelationalFilter*: Drop fields if they don't accomplish a relational condition.
     - *Rename*: Rename a field.
     - *TimeFilter*: Filter a time field between specified dates.
+    - *HeadersToBody*: The headersToBody is a command that write in your _attachment_body field all your headers but excluded in JSON format.
     - *ContainsAnyOf*: Command that succeeds if all field values of the given named fields contains any of the given values and fails otherwise. Multiple fields can be named, in which case a logical AND is applied to the results.
 * **GeoIP**: Command that works as the kite one. It will save the iso code and the longitude-latitude pair in two header fields.
 * **GeoLocateAirports**: Get the longitude and latitude of an airport from its airport code (from origin and destination).

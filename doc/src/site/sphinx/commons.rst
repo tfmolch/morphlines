@@ -41,6 +41,7 @@ Example::
         }
     }
 
+
 ReadXml
 =======
 
@@ -57,6 +58,7 @@ Example::
            }
         }
     }
+
 
 If paths field is empty (paths : { } ) whole xml will be parsed into a String with name _xml.
 
@@ -103,6 +105,23 @@ Example::
          }
     }
 
+
+HeadersToBody
+=============
+
+The headersToBody is a command that write in your _attachment_body field all your headers but excluded in JSON
+format.  Warning: This morphline REPLACE your _attachment_body field but maintains the headers.
+
+Example::
+
+  {
+      {
+        headersToBody {
+          excludeFields : [field2, field5]
+      }
+   }
+
+
 TimeFilter
 ==========
 
@@ -123,6 +142,7 @@ Example::
             to : "20/01/2015"
         }
     }
+
 
 ContainsAnyOf
 =============

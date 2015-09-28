@@ -22,7 +22,7 @@
     <parent>
         <groupId>com.stratio</groupId>
         <artifactId>parent</artifactId>
-        <version>0.1.0</version>
+        <version>0.4.0</version>
     </parent>
 
     <groupId>com.stratio.morphlines-ng</groupId>
@@ -32,9 +32,9 @@
     <packaging>pom</packaging>
 
     <properties>
-        <flume.version>1.6.0</flume.version>
         <kite.version>0.17.0</kite.version>
         <junit.version>4.11</junit.version>
+        <fest.version>1.4</fest.version>
         <commons.io.version>2.1</commons.io.version>
         <maxmind.version>0.3.3</maxmind.version>
         <typesafe.config.version>1.2.1</typesafe.config.version>
@@ -42,9 +42,8 @@
         <datastax.version>2.1.2</datastax.version>
         <jackson.databind.version>2.4.4</jackson.databind.version>
         <tika.version>1.5</tika.version>
-
         <mongodb.version>2.12.4</mongodb.version>
-
+        <slf4j.version>1.7.12</slf4j.version>
     </properties>
 
     <modules>
@@ -54,24 +53,12 @@
         <module>stratio-commons-morphline</module>
         <module>stratio-checkpointfilter-morphline</module>
         <module>stratio-geolocateairports-morphline</module>
-        <module>doc</module>
         <module>stratio-ldap-morphline</module>
+        <module>doc</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-all</artifactId>
-                <scope>test</scope>
-                <version>${mockito.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.kitesdk</groupId>
                 <artifactId>kite-morphlines-core</artifactId>
@@ -98,95 +85,79 @@
                 <version>${typesafe.config.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.easytesting</groupId>
-                <artifactId>fest-assert</artifactId>
-                <version>1.4</version>
-            </dependency>
-            <dependency>
                 <groupId>org.mongodb</groupId>
                 <artifactId>mongo-java-driver</artifactId>
                 <version>${mongodb.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <!-- Test dependencies -->
+            <dependency>
+                <groupId>org.easytesting</groupId>
+                <artifactId>fest-assert</artifactId>
+                <version>${fest.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
-
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>findbugs-maven-plugin</artifactId>
-                    <version>2.5.4</version>
-                    <configuration>
-                        <effort>Max</effort>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.4</version>
-                    <configuration>
-                        <skip>true</skip>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.17</version>
-                <configuration>
-                    <argLine>${jacocoUT} -XX:MaxPermSize=512m</argLine>
-                    <includes>
-                        <include>**/*Test.java</include>
-                    </includes>
-                    <excludes>
-                        <exclude>**/*IT.java</exclude>
-                    </excludes>
-                    <skipTests>${skipUTs}</skipTests>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.17</version>
-                <configuration>
-                    <argLine>${jacocoIT}</argLine>
-                    <includes>
-                        <include>**/*IT.java</include>
-                    </includes>
-                    <excludes>
-                        <exclude>**/*Test.java</exclude>
-                    </excludes>
-                    <skipTests>${skipITs}</skipTests>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.1.201405082137</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
                 <executions>
                     <execution>
-                        <id>pre-unittest</id>
+                        <id>attach-javadocs</id>
                         <goals>
-                            <goal>prepare-agent</goal>
+                            <goal>jar</goal>
                         </goals>
-                        <configuration>
-                            <destFile>${project.build.directory}/jacocoUT.exec</destFile>
-                            <propertyName>jacocoUT</propertyName>
-                        </configuration>
                     </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
                     <execution>
-                        <id>pre-integrationtest</id>
+                        <id>attach-sources</id>
                         <goals>
-                            <goal>prepare-agent</goal>
+                            <goal>jar</goal>
                         </goals>
-                        <configuration>
-                            <destFile>${project.build.directory}/jacocoIT.exec</destFile>
-                            <propertyName>jacocoIT</propertyName>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

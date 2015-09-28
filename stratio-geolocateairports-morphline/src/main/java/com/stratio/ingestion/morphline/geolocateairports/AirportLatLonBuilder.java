@@ -19,12 +19,13 @@ import com.typesafe.config.Config;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import org.apache.log4j.Logger;
 import org.kitesdk.morphline.api.Command;
 import org.kitesdk.morphline.api.CommandBuilder;
 import org.kitesdk.morphline.api.MorphlineContext;
 import org.kitesdk.morphline.api.Record;
 import org.kitesdk.morphline.base.AbstractCommand;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.*;
@@ -34,7 +35,7 @@ import java.util.*;
  */
 public class AirportLatLonBuilder implements CommandBuilder {
 
-    private final static Logger LOG = Logger.getLogger(AirportLatLonBuilder.class);
+    private final static Logger LOG = LoggerFactory.getLogger(AirportLatLonBuilder.class);
 
     private final static String COMMAND_NAME = "geolocateAirportCode";
 

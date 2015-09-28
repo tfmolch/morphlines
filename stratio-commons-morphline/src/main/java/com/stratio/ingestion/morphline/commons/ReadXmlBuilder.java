@@ -70,12 +70,10 @@ public class ReadXmlBuilder implements CommandBuilder {
     private static final String CONF_PATHS = "paths";
     private static final String CONF_FIELD = "source";
 
-    @Override
     public Collection<String> getNames() {
         return Collections.singletonList("readXml");
     }
 
-    @Override
     public Command build(Config config, Command parent, Command child, MorphlineContext context) {
         return new ReadXml(this, config, parent, child, context);
     }

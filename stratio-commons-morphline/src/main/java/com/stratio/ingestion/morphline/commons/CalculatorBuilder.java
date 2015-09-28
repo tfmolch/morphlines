@@ -63,12 +63,10 @@ public class CalculatorBuilder implements CommandBuilder {
 
     private static final String DEFAULT_OUT_FIELD = "output";
 
-    @Override
     public Collection<String> getNames() {
         return Collections.singletonList("calculator");
     }
 
-    @Override
     public Command build(Config config, Command parent, Command child, MorphlineContext context) {
         return new Calculator(this, config, parent, child, context);
     }

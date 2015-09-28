@@ -66,11 +66,11 @@ public class CheckpointFilterBuilder extends AbstractCheckpointFilter implements
     private static final String CONF_CHUNKSIZE = "chunksize";
     private static final String CONF_MONGO_URI = "mongoUri";
 
-    @Override public Collection<String> getNames() {
+    public Collection<String> getNames() {
         return Collections.singleton(COMMAND_NAME);
     }
 
-    @Override public Command build(Config config, Command parent, Command child, MorphlineContext context) {
+    public Command build(Config config, Command parent, Command child, MorphlineContext context) {
         return new CheckpointFilter(this, config, parent, child, context);
     }
 

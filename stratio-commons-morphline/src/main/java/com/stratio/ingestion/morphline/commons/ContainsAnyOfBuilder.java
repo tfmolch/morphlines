@@ -40,12 +40,10 @@ import java.util.*;
 // @formatter:on
 public class ContainsAnyOfBuilder implements CommandBuilder {
 
-    @Override
     public Collection<String> getNames() {
         return Collections.singletonList("containsAnyOf");
     }
 
-    @Override
     public Command build(Config config, Command parent, Command child, MorphlineContext context) {
         return new ContainsAnyOf(this, config, parent, child, context);
     }

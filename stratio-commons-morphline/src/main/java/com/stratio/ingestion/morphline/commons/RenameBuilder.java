@@ -58,12 +58,10 @@ public class RenameBuilder implements CommandBuilder {
 
     private static final Boolean DEFAULT_REMOVE = true;
 
-    @Override
     public Collection<String> getNames() {
         return Collections.singleton(COMMAND_NAME);
     }
 
-    @Override
     public Command build(Config config, Command parent, Command child, MorphlineContext context) {
         return new Rename(this, config, parent, child, context);
     }

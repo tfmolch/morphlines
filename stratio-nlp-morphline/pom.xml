@@ -30,11 +30,6 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.apache.flume</groupId>
-			<artifactId>flume-ng-core</artifactId>
-			<version>${flume.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>org.kitesdk</groupId>
 			<artifactId>kite-morphlines-core</artifactId>
 		</dependency>
@@ -45,12 +40,10 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -62,17 +55,5 @@
 			<version>${tika.version}</version>
 		</dependency>
 	</dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-                <configuration>
-                    <excludeFilterFile>findbugs-exclude.xml</excludeFilterFile>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
