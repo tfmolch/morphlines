@@ -45,11 +45,10 @@ public class AirportLatLonBuilder implements CommandBuilder {
         BufferedReader br = null;
         try {
             is = AirportLatLonBuilder.class.getClassLoader().getResourceAsStream("airports.dat");
-            br = new BufferedReader(new InputStreamReader(is, "UTF-8"));;
+            br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
             CSVParser parser = new CSVParser(br, CSVFormat.DEFAULT.withDelimiter(',').withQuote('"'));
             List<CSVRecord> records = parser.getRecords();
-            for(int i = 0; i < records.size(); i++) {
-                CSVRecord record = records.get(i);
+            for (CSVRecord record : records) {
                 AIRPORT_COORDS.put(record.get(4), record.get(6) + "," + record.get(7));
             }
         } catch(IOException e) {
@@ -59,26 +58,24 @@ public class AirportLatLonBuilder implements CommandBuilder {
                 try {
                     is.close();
                 } catch (Exception e) {
-
+                    System.out.println(e);
                 }
             }
             if (br != null) {
                 try {
                     br.close();
                 } catch (Exception e) {
-
+                    System.out.println(e);
                 }
             }
         }
         LOG.debug("Loaded [" + AIRPORT_COORDS.size() + "] airports coordinates.");
     }
 
-    @Override
     public Collection<String> getNames() {
         return Collections.singletonList(COMMAND_NAME);
     }
 
-    @Override
     public Command build(Config config, Command parend, Command child, MorphlineContext context) {
         return new SGeolocatedAirport(this, config, parend, child, context);
     }

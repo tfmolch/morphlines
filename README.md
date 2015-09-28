@@ -17,6 +17,10 @@ Stratio Morphlines consists of several modules:
 * GeoLocateAirports: Get the longitude and latitude of an airport from its airport code (from origin and destination).
 * NLP: Command that detects the language of a specific header and puts the ISO_639-1 code into another header.
 * WikipediaCleaner: Command that cleans the wikipedia markup from a text.
-* CheckpointFilter: Get the last checkpoint value by parametrized handler and filter records by paramentrized field 
-too. Periodically update checkpoints values.
+* CheckpointFilter: Get the last checkpoint value by parametrized handler and filter records by paramentrized field too. Periodically update checkpoints values.
+* LDAP: Extract RDN's from an LDAP String into separated headers.
 
+Changelog
+---------
+
+See the [changelog](CHANGELOG.md) for changes.
