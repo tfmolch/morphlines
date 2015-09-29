@@ -153,6 +153,7 @@
 							<goal>jar</goal>
 						</goals>
 						<configuration>
+							<skip>${skipJD}</skip>
 							<excludePackageNames>
 								cue.lang.*
 							</excludePackageNames>
