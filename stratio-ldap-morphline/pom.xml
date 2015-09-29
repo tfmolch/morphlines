@@ -11,6 +11,8 @@
 
     <artifactId>stratio-ldap-morphline</artifactId>
 
+    <name>Stratio LDAP morphline</name>
+
     <dependencies>
         <dependency>
             <groupId>org.kitesdk</groupId>

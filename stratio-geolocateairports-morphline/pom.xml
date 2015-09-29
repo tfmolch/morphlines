@@ -27,7 +27,7 @@
     <artifactId>stratio-geolocateairport-morphline</artifactId>
     <packaging>jar</packaging>
 
-    <name>Stratio geolocate airports morphline</name>
+    <name>Stratio Geolocate Airports morphline</name>
 
     <dependencies>
         <dependency>

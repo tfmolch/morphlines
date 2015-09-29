@@ -29,6 +29,8 @@
 
     <artifactId>stratio-morphlines-all</artifactId>
 
+    <name>Stratio Morphlines All</name>
+
     <dependencies>
         <dependency>
             <groupId>com.stratio.morphlines-ng</groupId>
