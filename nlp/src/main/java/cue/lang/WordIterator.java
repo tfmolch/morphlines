@@ -20,9 +20,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 
+ *
  * @author Jonathan Feinberg <jdf@us.ibm.com>
- * 
+ *
  */
 public class WordIterator extends IterableText
 {
