@@ -48,6 +48,7 @@
 		<tika.version>1.5</tika.version>
 		<mongodb.version>2.12.4</mongodb.version>
 		<slf4j.version>1.7.12</slf4j.version>
+    		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<modules>
