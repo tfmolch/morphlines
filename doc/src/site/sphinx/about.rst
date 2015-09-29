@@ -20,3 +20,4 @@ Stratio Morphlines consists of several modules:
 * **WikipediaCleaner**: Command that cleans the wikipedia markup from a text.
 * **CheckpointFilter**: Get the last checkpoint value by parametrized handler and filter records by paramentrized field too. Periodically update checkpoints values.
 * **LDAP**: Extract RDN's from an LDAP String into separated headers.
+* **Referer Parser**: Is based on Snowplow Referer Parser with some improvements. It's able to parse both organic links as paid links.

@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.stratio.ingestion.morphline.refererparser;
+package com.stratio.morphlines.refererparser;
 
 import java.util.Arrays;
 

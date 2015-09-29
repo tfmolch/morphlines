@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.stratio.ingestion.morphline.refererparser;
+package com.stratio.morphlines.refererparser;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,7 +33,7 @@ import org.apache.http.client.utils.URLEncodedUtils;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.SafeConstructor;
 
-import com.stratio.ingestion.morphline.refererparser.exception.RefererParserException;
+import com.stratio.morphlines.refererparser.exception.RefererParserException;
 
 public class Parser {
 

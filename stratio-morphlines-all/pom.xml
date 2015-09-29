@@ -65,6 +65,11 @@
             <artifactId>stratio-wikipediacleaner-morphline</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.stratio.morphlines</groupId>
+            <artifactId>stratio-referer-parser-morphline</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
     
 </project>

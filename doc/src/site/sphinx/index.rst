@@ -11,5 +11,6 @@ Contents:
    nlp.rst
    wikipediacleaner.rst
    checkpointfilter.rst
+   referparser.rst
    ldap.rst
 

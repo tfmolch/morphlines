@@ -15,7 +15,7 @@
  *
  */
 
-package com.stratio.ingestion.morphline.refererparser;
+package com.stratio.morphlines.refererparser;
 
 import java.io.IOException;
 import java.net.URI;
@@ -31,7 +31,7 @@ import org.kitesdk.morphline.api.MorphlineContext;
 import org.kitesdk.morphline.api.Record;
 import org.kitesdk.morphline.base.AbstractCommand;
 
-import com.stratio.ingestion.morphline.refererparser.exception.RefererParserException;
+import com.stratio.morphlines.refererparser.exception.RefererParserException;
 import com.typesafe.config.Config;
 
 /**

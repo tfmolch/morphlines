@@ -16,11 +16,6 @@
     <name>Stratio GeoIP morphline</name>
 
     <dependencies>
-        <dependency>
-            <groupId>org.apache.flume</groupId>
-            <artifactId>flume-ng-core</artifactId>
-            <version>${flume.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.kitesdk</groupId>

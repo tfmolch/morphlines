@@ -18,7 +18,7 @@
 /**
  * Created by eambrosio@stratio.com
  */
-package com.stratio.ingestion.morphline.refererparser.exception;
+package com.stratio.morphlines.refererparser.exception;
 
 public class RefererParserException extends RuntimeException {
     public RefererParserException(String message) {

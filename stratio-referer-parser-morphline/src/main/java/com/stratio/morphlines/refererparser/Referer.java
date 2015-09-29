@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.stratio.ingestion.morphline.refererparser;
+package com.stratio.morphlines.refererparser;
 
 public class Referer {
     //    public final Medium medium;
