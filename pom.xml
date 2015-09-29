@@ -154,7 +154,7 @@
 						</goals>
 						<configuration>
 							<excludePackageNames>
-								cue.lang
+								cue.lang.*
 							</excludePackageNames>
 						</configuration>
 					</execution>
