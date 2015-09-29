@@ -16,19 +16,25 @@
 
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.stratio.morphlines</groupId>
-	<artifactId>stratio-morphlines</artifactId>
+	<parent>
+		<groupId>com.stratio</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.4.0</version>
+	</parent>
+
+	<groupId>com.stratio.morphlines-ng</groupId>
+	<artifactId>stratio-morphlines-ng</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
-	<name>Stratio Morphlines</name>
+	<name>Stratio Morphlines NG</name>
 	<packaging>pom</packaging>
 
 	<properties>
-		<flume.version>1.6.0</flume.version>
 		<kite.version>0.17.0</kite.version>
 		<junit.version>4.11</junit.version>
+		<fest.version>1.4</fest.version>
 		<commons.io.version>2.1</commons.io.version>
 		<maxmind.version>0.3.3</maxmind.version>
 		<typesafe.config.version>1.2.1</typesafe.config.version>
@@ -36,35 +42,25 @@
 		<datastax.version>2.1.2</datastax.version>
 		<jackson.databind.version>2.4.4</jackson.databind.version>
 		<tika.version>1.5</tika.version>
-
 		<mongodb.version>2.12.4</mongodb.version>
-
+		<slf4j.version>1.7.12</slf4j.version>
 	</properties>
 
 	<modules>
 		<module>stratio-geoip-morphline</module>
 		<module>stratio-nlp-morphline</module>
 		<module>stratio-wikipediacleaner-morphline</module>
-        <module>stratio-commons-morphline</module>
+		<module>stratio-commons-morphline</module>
 		<module>stratio-checkpointfilter-morphline</module>
 		<module>stratio-geolocateairports-morphline</module>
+		<module>stratio-ldap-morphline</module>
 		<module>stratio-referer-parser-morphline</module>
+		<module>stratio-morphlines-all</module>
+		<module>doc</module>
 	</modules>
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>${junit.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.mockito</groupId>
-				<artifactId>mockito-all</artifactId>
-				<scope>test</scope>
-				<version>${mockito.version}</version>
-			</dependency>
 			<dependency>
 				<groupId>org.kitesdk</groupId>
 				<artifactId>kite-morphlines-core</artifactId>
@@ -91,16 +87,88 @@
 				<version>${typesafe.config.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.easytesting</groupId>
-				<artifactId>fest-assert</artifactId>
-				<version>1.4</version>
-			</dependency>
-			<dependency>
 				<groupId>org.mongodb</groupId>
 				<artifactId>mongo-java-driver</artifactId>
 				<version>${mongodb.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<!-- Test dependencies -->
+			<dependency>
+				<groupId>org.easytesting</groupId>
+				<artifactId>fest-assert</artifactId>
+				<version>${fest.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-all</artifactId>
+				<version>${mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-simple</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<excludePackageNames>
+								cue.lang
+							</excludePackageNames>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

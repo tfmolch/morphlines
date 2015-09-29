@@ -20,8 +20,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.stratio.morphlines</groupId>
-        <artifactId>stratio-morphlines</artifactId>
+        <groupId>com.stratio.morphlines-ng</groupId>
+        <artifactId>stratio-morphlines-ng</artifactId>
         <version>0.1.0-SNAPSHOT</version>
     </parent>
     <artifactId>stratio-geolocateairport-morphline</artifactId>
@@ -31,11 +31,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.flume</groupId>
-            <artifactId>flume-ng-core</artifactId>
-            <version>${flume.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.kitesdk</groupId>
             <artifactId>kite-morphlines-core</artifactId>
         </dependency>
@@ -44,8 +39,10 @@
             <artifactId>commons-csv</artifactId>
             <version>1.1</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+        </dependency>
     </dependencies>
 
 
