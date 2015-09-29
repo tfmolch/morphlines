@@ -45,9 +45,9 @@ import com.typesafe.config.Config;
  * Example:
  * {
  *     checkpointFilter {
- *         handler: com.stratio.ingestion.morphline.checkpointfilter.handler.MongoCheckpointHandler
+ *         handler: com.stratio.morphlines.checkpointfilter.handler.MongoCheckpointHandler
  *         field: date
- *         type: com.stratio.ingestion.morphline.checkpointfilter.type.DateCheckpointType
+ *         type: com.stratio.morphlines.checkpointfilter.type.DateCheckpointType
  *         format: "dd/MM/yyyy"
  *         chunksize: 1000
  *         mongoUri: mongodb://127.0.0.1:27017/mydb.checkpoints

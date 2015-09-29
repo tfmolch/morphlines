@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>doc</artifactId>
-    <name>Stratio ingestion documentation</name>
+    <name>Stratio Morphlines Documentation</name>
 
     <properties>
         <jacoco.skip>true</jacoco.skip>
