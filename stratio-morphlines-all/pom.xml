@@ -68,7 +68,7 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.stratio.morphlines</groupId>
+            <groupId>com.stratio.morphlines-ng</groupId>
             <artifactId>stratio-referer-parser-morphline</artifactId>
             <version>${project.version}</version>
         </dependency>
