@@ -54,6 +54,7 @@
         <module>stratio-checkpointfilter-morphline</module>
         <module>stratio-geolocateairports-morphline</module>
         <module>stratio-ldap-morphline</module>
+        <module>stratio-morphlines-all</module>
         <module>doc</module>
     </modules>
 
@@ -145,6 +146,11 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
+                        <configuration>
+                            <excludePackageNames>
+                                cue.lang
+                            </excludePackageNames>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
