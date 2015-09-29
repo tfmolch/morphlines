@@ -34,42 +34,42 @@
     <dependencies>
         <dependency>
             <groupId>com.stratio.morphlines-ng</groupId>
-            <artifactId>stratio-commons-morphline</artifactId>
+            <artifactId>commons</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.stratio.morphlines-ng</groupId>
-            <artifactId>stratio-checkpointfilter-morphline</artifactId>
+            <artifactId>checkpointfilter</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.stratio.morphlines-ng</groupId>
-            <artifactId>stratio-geoip-morphline</artifactId>
+            <artifactId>geoip</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.stratio.morphlines-ng</groupId>
-            <artifactId>stratio-geolocateairport-morphline</artifactId>
+            <artifactId>geolocateairport</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.stratio.morphlines-ng</groupId>
-            <artifactId>stratio-ldap-morphline</artifactId>
+            <artifactId>ldap</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.stratio.morphlines-ng</groupId>
-            <artifactId>stratio-nlp-morphline</artifactId>
+            <artifactId>nlp</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.stratio.morphlines-ng</groupId>
-            <artifactId>stratio-wikipediacleaner-morphline</artifactId>
+            <artifactId>wikipediacleaner</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.stratio.morphlines-ng</groupId>
-            <artifactId>stratio-referer-parser-morphline</artifactId>
+            <artifactId>refererparser</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
