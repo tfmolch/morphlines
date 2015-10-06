@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.kitesdk.morphline.api.Command;
 import org.kitesdk.morphline.api.MorphlineContext;

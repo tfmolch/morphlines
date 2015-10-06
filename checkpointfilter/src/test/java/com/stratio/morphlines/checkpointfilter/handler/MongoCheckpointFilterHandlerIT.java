@@ -27,6 +27,7 @@ import java.util.Map;
 
 import com.stratio.morphlines.checkpointfilter.type.DateCheckpointType;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -47,14 +48,8 @@ public class MongoCheckpointFilterHandlerIT {
     private MongoClient mongoClient;
 
     public static String getMongoHost() {
-      String mongoIp = System.getProperty("mongo.ip");
-      if (mongoIp == null) {
-        mongoIp = "127.0.0.1";
-      }
-      String mongoPort = System.getProperty("mongo.port");
-      if (mongoPort == null) {
-        mongoPort = "27017";
-      }
+      String mongoIp = System.getProperty("mongo.ip", "127.0.0.1");
+      String mongoPort = System.getProperty("mongo.port", "27017");
       return mongoIp + ":" + mongoPort;
     }
 
@@ -139,7 +134,7 @@ public class MongoCheckpointFilterHandlerIT {
 
         final String lastCheckpoint = handler.getLastCheckpoint(context);
         assertThat(lastCheckpoint).isNotNull();
-        assertThat(lastCheckpoint).isEqualTo("2014-12-16T16:32:33+01:00");
+        assertThat(lastCheckpoint).isEqualTo("2014-12-16T16:32:33[Z]");
 
     }
 
