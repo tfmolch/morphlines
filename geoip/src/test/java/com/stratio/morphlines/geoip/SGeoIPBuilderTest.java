@@ -18,6 +18,7 @@ package com.stratio.morphlines.geoip;
 import com.google.common.base.Preconditions;
 import com.typesafe.config.Config;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -29,6 +30,9 @@ import org.apache.commons.io.IOUtils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by epeinado on 27/05/15.
@@ -36,6 +40,15 @@ import java.io.IOException;
 
 @RunWith(JUnit4.class)
 public class SGeoIPBuilderTest {
+
+    private static final String MORPH_OK_CONF = "/conf/basicConf.conf";
+
+    private Config configOk;
+
+    @Before
+    public void setUp() throws IOException {
+        configOk = parse(MORPH_OK_CONF).getConfigList("commands").get(0).getConfig("sgeoIP");
+    }
 
     protected Config parse(String file, Config... overrides) throws IOException {
         File tmpFile = File.createTempFile("morphlines_", ".conf");
@@ -51,16 +64,21 @@ public class SGeoIPBuilderTest {
         final MorphlineContext context = new MorphlineContext.Builder().build();
         Collector collectorParent = new Collector();
         Collector collectorChild = new Collector();
-        final Command command = new SGeoIPBuilder().build(parse("conf/basicConf.conf")
-                .getConfigList("commands").get(0).getConfig("sgeoIP"), collectorParent,
+        final Command command = new SGeoIPBuilder().build(configOk, collectorParent,
         collectorChild, context);
 
         Record record = new Record();
-        record.put("log_host", "www.stratio.com");
+        record.put("log_host", "62.82.197.162");
 
         command.process(record);
+
+        List<Record> records = collectorChild.getRecords();
+        assertEquals(1, records.size());
+        Record result = records.get(0);
+        assertEquals(3, result.getFields().size());
+
         Assert.assertEquals(collectorChild.getFirstRecord().get("log_iso_code").get(0),
-                "US");
+                "ES");
     }
 
 }
