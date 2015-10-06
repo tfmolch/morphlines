@@ -56,4 +56,16 @@
             <artifactId>fest-assert</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.conf</include>
+                </includes>
+            </testResource>
+        </testResources>
+    </build>
 </project>
