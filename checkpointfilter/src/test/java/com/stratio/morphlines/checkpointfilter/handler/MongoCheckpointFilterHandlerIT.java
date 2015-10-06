@@ -26,6 +26,7 @@ import java.util.Date;
 import java.util.Map;
 
 import com.stratio.morphlines.checkpointfilter.type.DateCheckpointType;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -56,6 +57,12 @@ public class MongoCheckpointFilterHandlerIT {
     @Before
     public void setup() throws IOException {
         MockitoAnnotations.initMocks(this);
+        mongoClient = new MongoClient(new MongoClientURI("mongodb://" + getMongoHost()));
+    }
+
+    @After
+    public void tearDown() {
+        mongoClient.close();
     }
 
     @Test(expected = NullPointerException.class)
@@ -85,7 +92,6 @@ public class MongoCheckpointFilterHandlerIT {
         when(context.get("mongoUri"))
                 .thenReturn("mongodb://" + getMongoHost() + "/noExistingDB.emptyCollection");
         handler = new MongoCheckpointFilterHandler(new DateCheckpointType(), context);
-        mongoClient = new MongoClient(new MongoClientURI("mongodb://" + getMongoHost()));
         mongoClient.getDB(DB_TEST).createCollection("emptyCollection", null);
 
         handler = new MongoCheckpointFilterHandler(new DateCheckpointType(), context);
@@ -107,7 +113,6 @@ public class MongoCheckpointFilterHandlerIT {
         when(context.get("mongoUri"))
                 .thenReturn("mongodb://" + getMongoHost() + "/" + DB_TEST + ".emptyCollection");
         handler = new MongoCheckpointFilterHandler(new DateCheckpointType(), context);
-        mongoClient = new MongoClient(new MongoClientURI("mongodb://" + getMongoHost()));
         mongoClient.getDB(DB_TEST).createCollection("emptyCollection", null);
 
         final String lastCheckpoint = handler.getLastCheckpoint(context);
@@ -128,13 +133,12 @@ public class MongoCheckpointFilterHandlerIT {
         when(context.get("mongoUri"))
                 .thenReturn("mongodb://" + getMongoHost() + "/" + DB_TEST + ".validCollection");
         handler = new MongoCheckpointFilterHandler(new DateCheckpointType(), context);
-        mongoClient = new MongoClient(new MongoClientURI("mongodb://" + getMongoHost()));
         mongoClient.getDB(DB_TEST).createCollection("validCollection", null);
         mongoClient.getDB(DB_TEST).getCollection("validCollection").save(populateDocument());
 
         final String lastCheckpoint = handler.getLastCheckpoint(context);
         assertThat(lastCheckpoint).isNotNull();
-        assertThat(lastCheckpoint).isEqualTo("2014-12-16T16:32:33[Z]");
+        assertThat(lastCheckpoint).startsWith("2014-12-16T16:32:33");
 
     }
 
