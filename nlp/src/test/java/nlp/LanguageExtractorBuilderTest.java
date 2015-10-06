@@ -16,7 +16,7 @@
 package nlp;
 
 import com.google.common.base.Preconditions;
-import com.stratio.morphlines.nlp.TopWordsBuilder;
+import com.stratio.morphlines.nlp.LanguageExtractorBuilder;
 import com.typesafe.config.Config;
 import org.apache.tika.io.IOUtils;
 import org.junit.Before;
@@ -26,6 +26,7 @@ import org.junit.runners.JUnit4;
 import org.kitesdk.morphline.api.Command;
 import org.kitesdk.morphline.api.MorphlineContext;
 import org.kitesdk.morphline.api.Record;
+import org.kitesdk.morphline.base.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -34,16 +35,20 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(JUnit4.class)
-public class TopWordsBuilderUT  {
+/**
+ * Created by epeinado on 06/10/15.
+ */
 
-	private static final String MORPH_OK_CONF = "/parseTopWords.conf";
+@RunWith(JUnit4.class)
+public class LanguageExtractorBuilderTest {
+
+	private static final String MORPH_OK_CONF = "/parseLanguageExtractor.conf";
 
 	private Config configOk;
 
 	@Before
 	public void setUp() throws IOException {
-		configOk = parse(MORPH_OK_CONF).getConfigList("commands").get(0).getConfig("topWords");
+		configOk = parse(MORPH_OK_CONF).getConfigList("commands").get(0).getConfig("languageExtractor");
 	}
 
 	protected Config parse(String file, Config... overrides) throws IOException {
@@ -60,19 +65,18 @@ public class TopWordsBuilderUT  {
 		final MorphlineContext context = new MorphlineContext.Builder().build();
 		Collector collectorParent = new Collector();
 		Collector collectorChild = new Collector();
-		final Command command = new TopWordsBuilder().build(configOk, collectorParent,
+		final Command command = new LanguageExtractorBuilder().build(configOk, collectorParent,
 				collectorChild, context);
 
 		Record record = new Record();
-		record.put("input_field", "This is a test test test");
-		record.put("language_field", "en");
+		record.put("input_field", "This is a test");
 
 		command.process(record);
 		List<Record> records = collectorChild.getRecords();
 
 		assertEquals(1, records.size());
 		Record result = records.get(0);
-		assertEquals(3, result.getFields().size());
-		assertEquals(result.get("output_field").get(0), "test");
+		assertEquals(2, result.getFields().size());
+		assertEquals(result.get("output_field").get(0), "en");
 	}
 }
