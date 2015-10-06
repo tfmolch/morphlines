@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+import com.stratio.morphlines.checkpointfilter.exception.MongoCheckpointFilterException;
 import com.stratio.morphlines.checkpointfilter.type.DateCheckpointType;
 import org.junit.After;
 import org.junit.Before;

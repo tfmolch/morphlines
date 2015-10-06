@@ -13,7 +13,7 @@
 
     <artifactId>refererparser</artifactId>
 
-    <name>Stratio GeoIP morphline</name>
+    <name>Stratio Referer Parser morphline</name>
 
     <packaging>jar</packaging>
 
