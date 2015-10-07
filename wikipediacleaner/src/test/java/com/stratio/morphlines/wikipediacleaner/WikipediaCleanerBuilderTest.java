@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2014 Stratio (http://stratio.com)
+ * Copyright (C) 2015 Stratio (http://stratio.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,8 +31,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
-
-import static org.junit.Assert.assertEquals;
 
 /**
  * Created by epeinado on 27/05/15.
@@ -74,11 +72,11 @@ public class WikipediaCleanerBuilderTest {
         command.process(record);
 
         List<Record> records = collectorChild.getRecords();
-        assertEquals(1, records.size());
+        Assert.assertEquals(1, records.size());
         Record result = records.get(0);
-        assertEquals(2, result.getFields().size());
+        Assert.assertEquals(2, result.getFields().size());
 
-        Assert.assertFalse(collectorChild.getFirstRecord().get("output_field").get(0).toString().contains("[["));
+        Assert.assertFalse("Command has not remove wikipedia tags", collectorChild.getFirstRecord().get("output_field").get(0).toString().contains("[["));
     }
 
 }
