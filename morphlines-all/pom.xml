@@ -31,6 +31,8 @@
 
     <name>Stratio Morphlines All</name>
 
+    <packaging>pom</packaging>
+
     <dependencies>
         <dependency>
             <groupId>com.stratio.morphlines-ng</groupId>
