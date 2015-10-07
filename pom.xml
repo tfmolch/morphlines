@@ -44,6 +44,8 @@
 	</organization>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<kite.version>0.17.0</kite.version>
 		<junit.version>4.11</junit.version>
 		<fest.version>1.4</fest.version>
@@ -54,7 +56,7 @@
 		<datastax.version>2.1.2</datastax.version>
 		<jackson.databind.version>2.4.4</jackson.databind.version>
 		<tika.version>1.5</tika.version>
-		<mongodb.version>3.0.4</mongodb.version>
+		<mongodb.version>2.12.4</mongodb.version>
 		<slf4j.version>1.7.12</slf4j.version>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
