@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Collections;
 
+import com.stratio.morphlines.refererparser.exception.RefererParserException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -160,6 +161,13 @@ public class RefererParserBuilderTest {
         assertThat(record.get("source")).isEqualTo(Collections.EMPTY_LIST);
         assertThat(record.get("term")).isEqualTo(Collections.EMPTY_LIST);
     }
+
+    @Test(expected = RefererParserException.class)
+    public void processInvalidURI() throws IOException {
+        final Record record = buildMockRecord("(%·&·%!·%$!·$%", "");
+        command.process(record);
+    }
+
 
     protected Config parse(String file, Config... overrides) throws URISyntaxException, IOException {
         Config config = new org.kitesdk.morphline.base.Compiler().parse(

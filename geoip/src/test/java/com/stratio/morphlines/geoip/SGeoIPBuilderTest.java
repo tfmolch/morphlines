@@ -23,6 +23,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.kitesdk.morphline.api.Command;
+import org.kitesdk.morphline.api.MorphlineCompilationException;
 import org.kitesdk.morphline.api.MorphlineContext;
 import org.kitesdk.morphline.api.Record;
 import org.apache.commons.io.IOUtils;
@@ -42,12 +43,16 @@ import static org.junit.Assert.assertEquals;
 public class SGeoIPBuilderTest {
 
     private static final String MORPH_OK_CONF = "/conf/basicConf.conf";
+    private static final String MORPH_NOTOK_CONF = "/conf/notOkConf.conf";
 
     private Config configOk;
+
+    private Config configNotOk;
 
     @Before
     public void setUp() throws IOException {
         configOk = parse(MORPH_OK_CONF).getConfigList("commands").get(0).getConfig("sgeoIP");
+        configNotOk = parse(MORPH_NOTOK_CONF).getConfigList("commands").get(0).getConfig("sgeoIP");
     }
 
     protected Config parse(String file, Config... overrides) throws IOException {
@@ -60,7 +65,7 @@ public class SGeoIPBuilderTest {
     }
 
     @Test
-    public void test1() throws IOException {
+    public void testOk() throws IOException {
         final MorphlineContext context = new MorphlineContext.Builder().build();
         Collector collectorParent = new Collector();
         Collector collectorChild = new Collector();
@@ -79,6 +84,43 @@ public class SGeoIPBuilderTest {
 
         Assert.assertEquals(collectorChild.getFirstRecord().get("log_iso_code").get(0),
                 "ES");
+    }
+
+
+    @Test(expected = MorphlineCompilationException.class)
+    public void testNotOk() throws IOException {
+        final MorphlineContext context = new MorphlineContext.Builder().build();
+        Collector collectorParent = new Collector();
+        Collector collectorChild = new Collector();
+        final Command command = new SGeoIPBuilder().build(configNotOk, collectorParent,
+                collectorChild, context);
+
+        Record record = new Record();
+        record.put("log_host", "62.82.197.162");
+
+        command.process(record);
+    }
+
+    @Test
+    public void testInvalidIP() throws IOException {
+        final MorphlineContext context = new MorphlineContext.Builder().build();
+        Collector collectorParent = new Collector();
+        Collector collectorChild = new Collector();
+        final Command command = new SGeoIPBuilder().build(configOk, collectorParent,
+                collectorChild, context);
+
+        Record record = new Record();
+        record.put("log_host", "62.82.197");
+
+        command.process(record);
+
+        List<Record> records = collectorChild.getRecords();
+        assertEquals(1, records.size());
+        Record result = records.get(0);
+        assertEquals(1, result.getFields().size());
+
+        Assert.assertEquals(collectorChild.getFirstRecord().get("log_iso_code").size(),
+                0);
     }
 
 }

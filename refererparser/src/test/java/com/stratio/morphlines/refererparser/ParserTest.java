@@ -67,7 +67,7 @@ public class ParserTest {
         assertThat(parse.medium).isEqualTo(Medium.INTERNAL.toString());
         assertThat(parse.source).isNull();
         assertThat(parse.term).isNull();
-
+        assertThat(parse.toString()).isEqualTo("{medium: internal, source: null, term: null, campaign: null, content: null}");
     }
 
     @Test
