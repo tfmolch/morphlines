@@ -53,20 +53,20 @@ public class AirportLatLonBuilder implements CommandBuilder {
                 AIRPORT_COORDS.put(record.get(4), record.get(6) + "," + record.get(7));
             }
         } catch(IOException e) {
-            System.out.println(e);
+            LOG.error(e.getMessage());
         } finally {
             if(is != null) {
                 try {
                     is.close();
                 } catch (Exception e) {
-                    System.out.println(e);
+                    LOG.error(e.getMessage());
                 }
             }
             if (br != null) {
                 try {
                     br.close();
                 } catch (Exception e) {
-                    System.out.println(e);
+                    LOG.error(e.getMessage());
                 }
             }
         }
