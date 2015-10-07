@@ -7,9 +7,9 @@ Example:
 
 ``` 
 {
-  sgeoIP {
-    input : output
-    output : putput
+  wikipediaCleaner {
+    input : input_field
+    output : output_field
   }
 }
 ``` 
