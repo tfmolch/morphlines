@@ -59,6 +59,7 @@
 		<mongodb.version>2.12.4</mongodb.version>
 		<slf4j.version>1.7.12</slf4j.version>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<log4j.version>1.2.17</log4j.version>
 	</properties>
 
 	<modules>
@@ -106,11 +107,7 @@
 				<artifactId>mongo-java-driver</artifactId>
 				<version>${mongodb.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
+
 			<!-- Test dependencies -->
 			<dependency>
 				<groupId>org.easytesting</groupId>
@@ -134,7 +131,15 @@
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-simple</artifactId>
 				<version>${slf4j.version}</version>
+				<scope>test</scope>
 			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+
 		</dependencies>
 	</dependencyManagement>
 
