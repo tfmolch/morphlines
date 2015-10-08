@@ -124,9 +124,9 @@ html_theme = 'stratio'
 # documentation.
 html_theme_options = {
     'versions' : ['0.1.0'],
-    'github' : 'https://github.com/Stratio/morphlines-ng',
+    'github' : 'https://github.com/Stratio/morphlines',
     'jira': '',
-    'module_name' : 'morphlines-ng'
+    'module_name' : 'morphlines'
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
