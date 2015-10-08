@@ -30,7 +30,7 @@
 
 	<artifactId>stratio-morphlines-ng</artifactId>
 
-	<version>0.1.0-RC1</version>
+	<version>0.1.0-RC2-SNAPSHOT</version>
 
 	<name>Stratio Morphlines NG</name>
 
