@@ -26,9 +26,9 @@
 		<version>0.4.0</version>
 	</parent>
 
-	<groupId>com.stratio.morphlines-ng</groupId>
+	<groupId>com.stratio.morphlines</groupId>
 
-	<artifactId>stratio-morphlines-ng</artifactId>
+	<artifactId>stratio-morphlines</artifactId>
 
 	<version>0.2.0-SNAPSHOT</version>
 

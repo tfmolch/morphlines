@@ -22,8 +22,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.stratio.morphlines-ng</groupId>
-        <artifactId>stratio-morphlines-ng</artifactId>
+        <groupId>com.stratio.morphlines</groupId>
+        <artifactId>stratio-morphlines</artifactId>
         <version>0.2.0-SNAPSHOT</version>
     </parent>
 
@@ -35,42 +35,42 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.stratio.morphlines-ng</groupId>
+            <groupId>com.stratio.morphlines</groupId>
             <artifactId>commons</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.stratio.morphlines-ng</groupId>
+            <groupId>com.stratio.morphlines</groupId>
             <artifactId>checkpointfilter</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.stratio.morphlines-ng</groupId>
+            <groupId>com.stratio.morphlines</groupId>
             <artifactId>geoip</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.stratio.morphlines-ng</groupId>
+            <groupId>com.stratio.morphlines</groupId>
             <artifactId>geolocateairport</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.stratio.morphlines-ng</groupId>
+            <groupId>com.stratio.morphlines</groupId>
             <artifactId>ldap</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.stratio.morphlines-ng</groupId>
+            <groupId>com.stratio.morphlines</groupId>
             <artifactId>nlp</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.stratio.morphlines-ng</groupId>
+            <groupId>com.stratio.morphlines</groupId>
             <artifactId>wikipediacleaner</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.stratio.morphlines-ng</groupId>
+            <groupId>com.stratio.morphlines</groupId>
             <artifactId>refererparser</artifactId>
             <version>${project.version}</version>
         </dependency>
