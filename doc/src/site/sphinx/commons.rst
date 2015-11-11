@@ -158,5 +158,5 @@ In following example succeeds if value of app field is "one", "two" or "three"::
     }
 
 
-.. _SimpleDateFormat:  http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html"></a>
+.. _SimpleDateFormat:  http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
 .. _com.typesafe.config.Config : http://typesafehub.github.io/config/latest/api/com/typesafe/config/Config.html
