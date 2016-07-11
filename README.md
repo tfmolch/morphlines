@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/Stratio/Morphlines/badge.svg?branch=master)](https://coveralls.io/github/Stratio/Morphlines?branch=master)
+
 Stratio Morphlines
 ==================
 
