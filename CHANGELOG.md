@@ -6,7 +6,7 @@ Only listing significant user-visible, not internal code cleanups and minor bug 
 
 * Pending changelog
 
-## 0.2.0 (upcoming)
+## 0.2.0 (November 30, 2016)
 
 * Added coveralls badge
 * Added new command ```vgrok```
