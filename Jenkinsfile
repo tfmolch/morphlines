@@ -11,7 +11,7 @@ hose {
     ITSERVICES = [
         ['MONGODB': [
            'image': 'stratio/mongo:3.0.4',
-           'sleep': 30,
+           'sleep': 10,
            'healthcheck': 27017]],
     ]
     
